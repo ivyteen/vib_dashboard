@@ -19,17 +19,20 @@
           Dashboard
         </CHeaderNavLink>
       </CHeaderNavItem>
+      <!--
       <CHeaderNavItem class="px-3">
         <CHeaderNavLink to="/users" exact>
           Users
         </CHeaderNavLink>
       </CHeaderNavItem>
+      -->
       <CHeaderNavItem class="px-3">
         <CHeaderNavLink>
           Settings
         </CHeaderNavLink>
       </CHeaderNavItem>
     </CHeaderNav>
+    <!--
     <CHeaderNav class="mr-4">
       <CHeaderNavItem class="d-md-down-none mx-2">
         <CHeaderNavLink>
@@ -48,6 +51,7 @@
       </CHeaderNavItem>
       <TheHeaderDropdownAccnt/>
     </CHeaderNav>
+    -->
     <CSubheader class="px-3">
       <CBreadcrumbRouter class="border-0 mb-0"/>
     </CSubheader>
@@ -55,12 +59,14 @@
 </template>
 
 <script>
-import TheHeaderDropdownAccnt from './TheHeaderDropdownAccnt'
+//import TheHeaderDropdownAccnt from './TheHeaderDropdownAccnt'
 
 export default {
-  name: 'TheHeader',
+  name: 'TheHeader'
+  /*
   components: {
     TheHeaderDropdownAccnt
   }
+  */
 }
 </script>

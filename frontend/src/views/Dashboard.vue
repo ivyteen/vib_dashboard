@@ -1,21 +1,25 @@
 <template>
   <div>
+    <!--
     <WidgetsDropdown/>
+    -->
     <CCard>
       <CCardBody>
         <CRow>
           <CCol sm="5">
-            <h4 id="traffic" class="card-title mb-0">Traffic</h4>
-            <div class="small text-muted">November 2017</div>
+            <h4 id="traffic" class="card-title mb-0">Sensor 0</h4>
+            <div class="small text-muted">Latest : 2020.03.30 19:20:01</div>
           </CCol>
           <CCol sm="7" class="d-none d-md-block">
+            <!--
             <CButton color="primary" class="float-right">
               <CIcon name="cil-cloud-download"/>
             </CButton>
+            -->
             <CButtonGroup class="float-right mr-3">
               <CButton
                 color="outline-secondary"
-                v-for="(value, key) in ['Day', 'Month', 'Year']"
+                v-for="(value, key) in ['Freq', 'Spectrum', 'Trend']"
                 :key="key"
                 class="mx-0"
                 :pressed="value === selected ? true : false"
@@ -28,6 +32,7 @@
         </CRow>
         <MainChartExample style="height:300px;margin-top:40px;"/>
       </CCardBody>
+      <!--
       <CCardFooter>
         <CRow class="text-center">
           <CCol md sm="12" class="mb-sm-2 mb-0">
@@ -81,7 +86,9 @@
           </CCol>
         </CRow>
       </CCardFooter>
+      -->
     </CCard>
+    <!--
     <WidgetsBrand/>
     <CRow>
       <CCol md="12">
@@ -450,6 +457,7 @@
         </CCard>
       </CCol>
     </CRow>
+    -->
   </div>
 </template>
 
@@ -461,10 +469,11 @@ import WidgetsBrand from './widgets/WidgetsBrand'
 export default {
   name: 'Dashboard',
   components: {
-    MainChartExample,
-    WidgetsDropdown,
-    WidgetsBrand
+    MainChartExample
+    //WidgetsDropdown,
+    //WidgetsBrand
   },
+  /*
   data () {
     return {
       selected: 'Month',
@@ -543,5 +552,6 @@ export default {
       return $color
     }
   }
+  */
 }
 </script>
