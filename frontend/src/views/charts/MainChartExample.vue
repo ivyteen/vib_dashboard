@@ -3,6 +3,7 @@
     :datasets="defaultDatasets"
     :options="defaultOptions"
     :labels="['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su']"
+    style="height:300px;margin-top:40px;"
   />
 </template>
 

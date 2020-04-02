@@ -2,32 +2,36 @@ export default [
   {
     _name: 'CSidebarNav',
     _children: [
+/*
       {
         _name: 'CSidebarNavItem',
         name: 'Dashboard',
         to: '/dashboard',
-        icon: 'cil-speedometer',
+        icon: 'cil-clipboard',
         badge: {
           color: 'primary',
           text: 'NEW'
         }
       },
+*/
       {
         _name: 'CSidebarNavTitle',
-        _children: ['Theme']
+        _children: ['Sensors']
       },
       {
         _name: 'CSidebarNavItem',
-        name: 'Colors',
-        to: '/theme/colors',
-        icon: 'cil-drop'
+        name: 'Sensor 0',
+        /* to: '/theme/colors', */
+        icon: 'cil-audio'
       },
       {
         _name: 'CSidebarNavItem',
-        name: 'Typography',
-        to: '/theme/typography',
-        icon: 'cil-pencil'
-      },
+        name: 'Sensor 1',
+        /* to: '/theme/typography', */
+        icon: 'cil-audio'
+      }
+
+      /*
       {
         _name: 'CSidebarNavTitle',
         _children: ['Components']
@@ -237,6 +241,7 @@ export default [
         _class: 'bg-danger text-white',
         target: '_blank'
       }
+      */
     ]
   }
 ]
