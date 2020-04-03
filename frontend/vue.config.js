@@ -12,11 +12,11 @@ module.exports = {
   ],
   devServer: {
     proxy: {
-      '/api': {
-        target: 'http://localhost:3000/api',
+      '/sensor': {
+        target: 'http://localhost:3000/sensor',
         changeOrigin: true,
         pathRewrite: {
-          '^/api': ''
+          '^/sensor': ''
         }
       }
     }

@@ -2,61 +2,54 @@
     <CChartLine
         :datasets="Datasets"
         :options="Options"
-        style="height:300px;"
+        style="height:300px;margin-top:40px"
     />
 </template>
 
 <script>
 import { CChartLine } from '@coreui/vue-chartjs'
 
-function random (min, max) {
-  return (Math.random() * (max - min + 1) + min)
-}
-
 export default {
     name: 'FreqGraph',
     components: {
         CChartLine
     },
+    props: {
+        freq_data_arr:Object
+    },
     computed: {
         Datasets () {
+            let elements = 1600;
+            const colorX = 'rgba(0,0,255,0.5)';
+            const colorY = 'rgba(0,255,0,0.5)';
+            const colorZ = 'rgba(255,0,0,0.5)';
 
-            let elements = 1600
-            const dataX = []
-            const dataY = []
-            const dataZ = []
-
-            for (let i = 0; i <= elements; i++) {
-                dataX.push(random(-0.01,0.01))
-                dataY.push(random(-1, 1))
-                dataZ.push(random(-1, 1))
-            }
 
             return [
                 {
                     label: 'X',
                     backgroundColor: 'transparent',
-                    borderColor: 'rgba(0,0,255,0.5)',
-                    pointHoverBackgroundColor: 'rgba(0,0,255,0.5)',
+                    borderColor: colorX,
+                    pointHoverBackgroundColor: colorX,
                     borderWidth: 1,
-                    data: dataX,
+                    data: this.freq_data_arr.x
                 },
                 {
                     label: 'Y',
                     backgroundColor: 'transparent',
-                    borderColor: 'rgba(0,255,0,0.5)',
-                    pointHoverBackgroundColor: 'rgba(0,255,0,0.5)',
+                    borderColor: colorY,
+                    pointHoverBackgroundColor: colorY,
                     borderWidth: 1,
-                    data: dataY
+                    data: this.freq_data_arr.y
                 },
                 {
                     label: 'Z',
                     backgroundColor: 'transparent',
-                    borderColor: 'rgba(255,0,0,0.5)',
-                    pointHoverBackgroundColor: 'rgba(255,0,0,0.5)',
+                    borderColor: colorZ,
+                    pointHoverBackgroundColor: colorZ,
                     borderWidth: 1,
                     //borderDash: [8, 5],
-                    data: dataZ
+                    data: this.freq_data_arr.z
                 }
             ]
         },
@@ -65,7 +58,9 @@ export default {
 
                 maintainAspectRatio: false,
                 legend: {
-                    display: false
+                    display: true,
+                    position: 'top',
+                    align: 'end'
                 },
                 title: {
                   display: true,
@@ -89,7 +84,7 @@ export default {
                         beginAtZero: true,
                         maxTicksLimit: 5,
                        // stepSize: Math.ceil(250 / 5),
-                        max: 2
+                       // max: 2
                         },
                         gridLines: {
                         display: true

@@ -11,9 +11,13 @@ Vue.config.performance = true
 Vue.use(CoreuiVue)
 Vue.prototype.$log = console.log.bind(console)
 
+/*
 Vue.prototype.$http = axios.create({
-  baseURL: 'http://192.168.1.12:3000'
+  baseURL: 'http://192.168.1.201:3000'
 });
+*/
+
+Vue.prototype.$http = axios;
 
 new Vue({
   el: '#app',
