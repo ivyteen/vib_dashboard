@@ -1,25 +1,29 @@
 <template>
-    <CChartBar
+    <CChartLine
+        :labels="TimeLabel"
         :datasets="Datasets"
         :options="Options"
-        style="height:300px;margin-top:40px"
+        style="height:400px;"
     />
 </template>
 
 <script>
-import { CChartBar } from '@coreui/vue-chartjs'
+import { CChartLine } from '@coreui/vue-chartjs'
 
 export default {
     name: 'AbsAvgGraph',
     components: {
-        CChartBar
+        CChartLine
     },
     props: {
-        abs_avg_data:Object
+        abs_avg_data:Array
     },
     computed: {
+        TimeLabel () {
+            return this.abs_avg_data.map(o => o.time)
+        },
+
         Datasets () {
-            //let elements = 800;
             const colorX = 'rgba(0,0,255,0.5)';
             const colorY = 'rgba(0,255,0,0.5)';
             const colorZ = 'rgba(255,0,0,0.5)';
@@ -27,64 +31,62 @@ export default {
             return [
                 {
                     label: 'X',
-                    backgroundColor: colorX,
+                    backgroundColor: 'transparent',
                     borderColor: colorX,
-                    //pointHoverBackgroundColor: colorX,
                     borderWidth: 1,
-                    data: [1,2,3,4,5,6,7,8,9]
+                    //pointBackgroundColor: colorX,
+                    pointHoverBackgroundColor: colorX,
+                    data: this.abs_avg_data.map(o => o.abs_avg.x)
                 },
-                
                 {
                     label: 'Y',
-                    backgroundColor: colorY,
+                    backgroundColor: 'transparent',
                     borderColor: colorY,
-                    //pointHoverBackgroundColor: colorY,
+                    pointHoverBackgroundColor: colorY,
                     borderWidth: 1,
-                    data: [1,2,3,4,5,6,7,8,9]
+                    data: this.abs_avg_data.map(o => o.abs_avg.y)
                 },
                 {
                     label: 'Z',
-                    backgroundColor: colorZ,
+                    backgroundColor: 'transparent',
                     borderColor: colorZ,
-                   // pointHoverBackgroundColor: colorZ,
+                    pointHoverBackgroundColor: colorZ,
                     borderWidth: 1,
-                    //borderDash: [8, 5],
-                    data: [1,2,3,4,5,6,7,8,9]
+                    data: this.abs_avg_data.map(o => o.abs_avg.z)
                 }
-                
             ]
         },
         Options () {
             return {
 
                 maintainAspectRatio: false,
-                
                 legend: {
-                    display: false
+                    display: true,
+                    position: 'top',
+                    align: 'end'
                 },
                 title: {
-                  display: true,
-                  text: 'Abs Avg',
-                  fontSize: 16
+                    display: true,
+                    text: 'Abs Avg',
+                    fontSize: 16
                 },
                 scales: {
                     xAxes: [{
-                        scaleLabel: {
-                          display: false,
-                          labelString: 'Freq',
-                          padding: 0,
-                          fontStyle: "italic"
+                        type: 'time',
+                        time: {
+                            displayFormats: {
+                                second: 'YYYY/MM/D HH:mm:ss'
+                            },
+                            tooltipFormat: 'YYYY/MM/D HH:mm:ss'
                         },
                         gridLines: {
-                        drawOnChartArea: false
+                            drawOnChartArea: false
                         }
                     }],
                     yAxes: [{
                         ticks: {
-                        beginAtZero: true,
-                        maxTicksLimit: 5,
-                       // stepSize: Math.ceil(250 / 5),
-                        //max: 2
+                            beginAtZero: true,
+                            maxTicksLimit: 5,
                         },
                         gridLines: {
                         display: true
@@ -102,11 +104,7 @@ export default {
                         hoverBorderWidth: 3
                     }
                 }
-                
             }
-            
-
-
         }
     }   
    

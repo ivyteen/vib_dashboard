@@ -1,15 +1,15 @@
 <template>
-  <SensorDataDisplay />
+  <SensorTrendDisplay />
 </template>
 
 <script>
 //import MainChartExample from './charts/MainChartExample'
-import SensorDataDisplay from './SensorDataDisplay'
+import SensorTrendDisplay from './SensorTrendDisplay'
 
 export default {
   name: 'Dashboard',
   components: {
-    SensorDataDisplay
+    SensorTrendDisplay
   },
   /*
   data () {

@@ -7,6 +7,7 @@ const TheContainer = () => import('@/containers/TheContainer')
 // Views
 const Dashboard = () => import('@/views/Dashboard')
 
+/*
 const Colors = () => import('@/views/theme/Colors')
 const Typography = () => import('@/views/theme/Typography')
 
@@ -56,6 +57,8 @@ const Register = () => import('@/views/pages/Register')
 // Users
 const Users = () => import('@/views/users/Users')
 const User = () => import('@/views/users/User')
+*/
+
 
 Vue.use(Router)
 
@@ -79,6 +82,7 @@ function configRoutes () {
           name: 'Dashboard',
           component: Dashboard
         },
+        /*
         {
           path: 'theme',
           redirect: '/theme/colors',
@@ -99,6 +103,8 @@ function configRoutes () {
             }
           ]
         },
+        */
+       /*
         {
           path: 'charts',
           name: 'Charts',
@@ -135,6 +141,8 @@ function configRoutes () {
             }
           ]
         },
+        */
+        /*
         {
           path: 'base',
           redirect: '/base/cards',
@@ -225,6 +233,8 @@ function configRoutes () {
             }
           ]
         },
+        */
+        /*
         {
           path: 'buttons',
           redirect: '/buttons/standard-buttons',
@@ -255,6 +265,8 @@ function configRoutes () {
             }
           ]
         },
+        */
+        /*
         {
           path: 'icons',
           redirect: '/icons/coreui-icons',
@@ -280,6 +292,8 @@ function configRoutes () {
             }
           ]
         },
+        */
+        /*
         {
           path: 'notifications',
           redirect: '/notifications/alerts',
@@ -305,8 +319,10 @@ function configRoutes () {
             }
           ]
         }
+        */
       ]
     },
+    /*
     {
       path: '/pages',
       redirect: '/pages/404',
@@ -337,6 +353,7 @@ function configRoutes () {
         }
       ]
     }
+    */
   ]
 }
 
