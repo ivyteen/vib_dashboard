@@ -6,6 +6,11 @@ const TheContainer = () => import('@/containers/TheContainer')
 
 // Views
 const Dashboard = () => import('@/views/Dashboard')
+const SensorGraphDisplay = () => import('@/views/SensorGraphDisplay')
+//const SensorGraphTabView = () => import('@/views/SensorGraphTabView')
+const Setting = () => import('@/views/Setting')
+const Monitor = () => import('@/views/data_graph/Monitor')
+const TrendGraph = () => import('@/views/data_graph/TrendGraph')
 
 /*
 const Colors = () => import('@/views/theme/Colors')
@@ -80,8 +85,52 @@ function configRoutes () {
         {
           path: 'dashboard',
           name: 'Dashboard',
-          component: Dashboard
-        },
+          component: Dashboard,
+          children: [
+            {
+              path: 'graph_display',
+              name: 'SensorGraphDisplay',
+              component: SensorGraphDisplay,
+              
+              children: [
+                {
+                  path: ':id',
+                 // name: 'sensor',
+                  redirect:':id/monitor',
+                  //name: 'SensorGraphTabView',
+                  //component: SensorGraphTabView,
+                  
+                  component: {
+                    render(c) {
+                      return c('router-view')
+                    }
+                  },
+                  
+                  children: [
+                    {
+                      path: 'monitor',
+                      name: 'Monitor',
+                      component: Monitor,
+                    },
+                    {
+                      path: 'trend',
+                      name: 'TrendGraph',
+                      component: TrendGraph
+                    }    
+                  ]
+                  
+                }
+              ]
+            
+            },
+            {
+              path: 'settings',
+              name: 'Settings',
+              component: Setting
+            }
+
+          ]
+        }
         /*
         {
           path: 'theme',

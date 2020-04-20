@@ -51,7 +51,7 @@ export default {
           return {
             _name: 'CSidebarNavItem', 
             name: value.Tables_in_vibration_analyzer.slice(0,6)+' '+value.Tables_in_vibration_analyzer.slice(6),
-            //to: '/sensor/'+value.Tables_in_vibration_analyzer.slice(6),
+            to: '/dashboard/graph_display/'+value.Tables_in_vibration_analyzer.slice(6),
             icon: 'cil-audio'
           }
         })
