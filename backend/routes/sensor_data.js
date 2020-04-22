@@ -40,6 +40,9 @@ router.get('/:sensorId', async function(req, res, next) {
       case 'vrms':
         ret = await db_inf.get_trend(sensorId,dataType,many);
         break;
+      case 'monitor':
+        //ret;
+        break;
       default:
         break;
     }      

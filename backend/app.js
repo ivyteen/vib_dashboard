@@ -11,7 +11,9 @@ var usersRouter = require('./routes/users');
 var sensorRouter = require('./routes/sensor_data');
 
 var dbinf = require('./database/db_inf');
+var monitor = require('./monitor/monitor_inf');
 dbinf.connect();
+monitor.init();
 
 var app = express();
 
