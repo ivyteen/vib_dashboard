@@ -6,9 +6,12 @@
         :options="Options"
         style="height:400px;margin-bottom:30px"
     />
+
+<!--    
     <CSwitch labelOn="X" labelOff="X" class="mx-1" color="primary" checked shape="pill"/>
     <CSwitch labelOn="Y" labelOff="Y" class="mx-1" color="success" checked shape="pill"/>
     <CSwitch labelOn="Z" labelOff="Z" class="mx-1" color="danger" checked shape="pill"/>
+-->
 
 </div>    
 </template>

@@ -1,5 +1,7 @@
 var express = require('express');
 var db_inf = require('../database/db_inf');
+var monitor_inf = require('../monitor/monitor_inf');
+
 var router = express.Router();
 
 /* /sensorData/0?limit=5&skip=10 
@@ -41,16 +43,13 @@ router.get('/:sensorId', async function(req, res, next) {
         ret = await db_inf.get_trend(sensorId,dataType,many);
         break;
       case 'monitor':
-        //ret;
+        ret = await monitor_inf.get_data(sensorId);
         break;
       default:
         break;
     }      
 
-    
-
-      console.log("on route : ",ret);
-    //let obj = JSON.parse(ret);
+    //console.log("on route : ",ret);
     return res.json(ret);
   } catch(err){
     //console.error(err);

@@ -1,30 +1,44 @@
-const ipc = require('node-ipc');
+const redis = require('redis')
+const JSON = require('JSON')
+const { promisify } = require('util')
+//const client;
+let getAsync;
 
+function monitorInf_Init (app) {
 
+  try {
+    
+    const client = redis.createClient(6379, '127.0.0.1')
+    getAsync = promisify(client.get).bind(client);
 
-function callback_GetRealTimeData (data, socket) {
-    ipc.log("Data Received");
-    ipc.log('get data : '.debug, data);
-    //ipc.server.emit(socket,"world");
+  } catch(err){
+    console.error(err);
+    throw err;
+  }
+
+    
 }
 
+async function monitorInf_GetData (sensorId) {
 
-const monitorInf_Init = () => {
-    ipc.config.id = 'vib_monitor';
-    ipc.config.retry = 1500;
-    ipc.config.sync = true;
-    //ipc.config.rawBuffer = true;
-    //ipc.config.encoding = 'ascii';
+    
+    try {
+    //  const [rows, fields] = await connection.execute(query_str);
+      
+      const key_str = 'key:'+sensorId;    
+      const obj = JSON.parse(await getAsync(key_str));
 
-    ipc.serve('/tmp/vib_monitor');
-    ipc.server.on('start', function () { ipc.log("Monitor socket start")})
-    ipc.server.on('connect', function () { ipc.log("Sensor Inf Connected")} )
-    ipc.server.on('data', callback_GetRealTimeData);
-    ipc.server.start();
 
+      return obj;
+
+    } catch(err){
+      console.error("[Redis Error] "+err);
+      throw err;
+    }
 }
 
 
 module.exports = {
-    init: monitorInf_Init
+    init: monitorInf_Init,
+    get_data: monitorInf_GetData
 }

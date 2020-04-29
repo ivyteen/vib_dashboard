@@ -1,5 +1,6 @@
 <template>
     <CChartLine
+        :labels="IndexLabel"
         :datasets="Datasets"
         :options="Options"
         style="height:300px;margin-top:40px"
@@ -18,6 +19,10 @@ export default {
         spec_data_arr:Object
     },
     computed: {
+        IndexLabel () {
+            return this.spec_data_arr.x.map((value, index) => index)
+        },
+    
         Datasets () {
             let elements = 800;
             const colorX = 'rgba(0,0,255,0.5)';
@@ -100,7 +105,12 @@ export default {
                         hoverRadius: 4,
                         hoverBorderWidth: 3
                     }
+                },
+                animation: {
+                    duration: 10,
+                    easing: 'linear'
                 }
+
             }
         }
     }   

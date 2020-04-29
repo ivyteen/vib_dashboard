@@ -9,9 +9,8 @@
                 Trend
             </CNavItem>
 
-
         </CNav>    
-        
+
         <router-view></router-view>    
         
     </div>
