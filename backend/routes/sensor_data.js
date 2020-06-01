@@ -45,6 +45,10 @@ router.get('/:sensorId', async function(req, res, next) {
       case 'monitor':
         ret = await monitor_inf.get_data(sensorId);
         break;
+
+      case 'warning_alarm':
+        ret = await monitor_inf.get_warning_alarm(sensorId);
+  
       default:
         break;
     }      

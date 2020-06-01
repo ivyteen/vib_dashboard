@@ -17,7 +17,7 @@ import FreqGraph from './FreqGraph'
 import SpectrumGraph from './SpectrumGraph'
 
 
-let bindedDataUpdated = ''
+//let bindedDataUpdated = ''
 function autoDataUpdate () {
 
     this.$http.get('/sensor/'+this.$route.params.id+'?dataType=monitor')

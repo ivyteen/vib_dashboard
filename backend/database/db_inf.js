@@ -54,9 +54,35 @@ const dbinf_GetSensorsList = async () => {
     }
 }
 
+const dbinf_GetWarningAlarm = async (sensorId) => {
+    
+    let query_alarm_criteria = 'SELECT alarm_criteria FROM sensor'+sensorId;
+    let query_latest_vrms = 'SELECT vrms FROM sensor'+sensorId+ ' ORDER BY time'
+    
+    try {
+        let alarm = { x:0, y:0, z:0};
+        console.log("Getting Warning Alarm");
+        const [ac_row, ac_fields] = await connection.execute(query_alarm_criteria);
+        const [vrms_row, ac_fleilds] = await connection.execute(query_latest_vrms);
+        let ac_obj = JSON.parse(ac_row);
+        let vrms_obj = JSON.parse(vrms_row);
+
+        console.log(ac_obj);
+        console.log(vrms_obj);
+
+
+    } catch(err){
+        console.error(err);
+        throw err;
+    }
+
+
+}
+
 module.exports = {
     connect: dbinf_Connect,
     get_latest_record: dbinf_GetLatestRecord,
     get_trend: dbinf_GetTrend,
-    get_sensors_list: dbinf_GetSensorsList
+    get_sensors_list: dbinf_GetSensorsList,
+    get_warning_alarm: dbinf_GetWarningAlarm
 };

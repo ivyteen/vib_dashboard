@@ -72,7 +72,7 @@ export default {
 
     computed: {
         IndexLabel () {
-            return this.spec_data_arr.x.map((value, index) => (index*1600)/800)
+            return this.spec_data_arr.x.map((value, index) => ((index+1)*1600)/800)
         },
     
         Datasets () {

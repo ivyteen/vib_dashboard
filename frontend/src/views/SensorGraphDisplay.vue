@@ -3,8 +3,8 @@
     <CCard>
       <CCardHeader>
         <strong>Sensor {{this.$route.params.id}}</strong>
+        <WarningAlarm />
       </CCardHeader>
-
       <CCardBody>
         <CNav :fill=false variant="pills" style="margin-bottom:20px">
 
@@ -28,7 +28,7 @@
 
 
 <script>
-
+import WarningAlarm from './WarningAlarm'
 
 //import SensorGraphTabView from "./SensorGraphTabView"
 
@@ -36,11 +36,11 @@ let sensor_id;
 
 export default {
     name: 'SensorGraphDisplay',
-/*
+
     components: {
-      SensorGraphTabView
+      WarningAlarm
     },
-*/    
+    
 
     created () {
       console.log(this.$route.params.id);
