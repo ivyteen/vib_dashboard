@@ -27,8 +27,6 @@ function autoDataUpdate () {
             this.spectrum = obj.spectrum;
             this.timestamp = obj.timestamp;
         })
-
-
 }
 
 export default {
