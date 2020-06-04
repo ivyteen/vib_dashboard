@@ -2,15 +2,18 @@
     <span>
         <CBadge v-if="flag.x == 0" style="margin-left:20px" color="success"> X axis </CBadge>
         <CBadge v-else-if="flag.x == 1" style="margin-left:20px" color="warning"> X axis </CBadge>
-        <CBadge v-else style="margin-left:20px" color="danger"> X axis </CBadge>
+        <CBadge v-else-if="flag.x == 2" style="margin-left:20px" color="danger"> X axis </CBadge>
+        <CBadge v-else style="margin-left:20px" color="secondary"> X axis </CBadge>
 
         <CBadge v-if="flag.y == 0" style="margin-left:20px" color="success"> Y axis </CBadge>
         <CBadge v-else-if="flag.y == 1" style="margin-left:20px" color="warning"> Y axis </CBadge>
-        <CBadge v-else style="margin-left:20px" color="danger"> Y axis </CBadge>
+        <CBadge v-else-if="flag.y == 2" style="margin-left:20px" color="danger"> Y axis </CBadge>
+        <CBadge v-else style="margin-left:20px" color="secondary"> Y axis </CBadge>
 
         <CBadge v-if="flag.z == 0" style="margin-left:20px" color="success"> Z axis </CBadge>
         <CBadge v-else-if="flag.z == 1" style="margin-left:20px" color="warning"> Z axis </CBadge>
-        <CBadge v-else style="margin-left:20px" color="danger"> Z axis </CBadge>
+        <CBadge v-else-if="flag.z == 2" style="margin-left:20px" color="danger"> Z axis </CBadge>
+        <CBadge v-else style="margin-left:20px" color="secondary"> Y axis </CBadge>
 
     </span>
 </template>

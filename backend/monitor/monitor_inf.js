@@ -43,7 +43,7 @@ async function monitorInf_GetWarningAlarm (sensorId) {
   const warning_flag = 1;
   const danger_flag = 2;
 
-  let alarm_flag = { x:normal_flag, y:normal_flag, z:normal_flag };
+  let alarm_flag = { x:null, y:null, z:null };
   
   try {
     
@@ -57,6 +57,8 @@ async function monitorInf_GetWarningAlarm (sensorId) {
       }else {
         alarm_flag.x = warning_flag;
       }
+    } else {
+      alarm_flag.x = normal_flag;
     }
 
     if(data_obj.vrms.y > (ac_obj.y * 2)){
@@ -65,6 +67,8 @@ async function monitorInf_GetWarningAlarm (sensorId) {
       }else {
         alarm_flag.y = warning_flag;
       }
+    } else {
+      alarm_flag.y = normal_flag;
     }
 
     if(data_obj.vrms.z > (ac_obj.z * 2)){
@@ -73,15 +77,19 @@ async function monitorInf_GetWarningAlarm (sensorId) {
       }else {
         alarm_flag.z = warning_flag;
       }
+    } else {
+      alarm_flag.z = normal_flag;
     }
 
     //console.log(alarm_flag);
 
-    return alarm_flag;
+    //return alarm_flag;
 
   } catch(err){
       console.error(err);
-      throw err;
+      //throw err;
+  } finally {
+    return alarm_flag; 
   }
 
 
